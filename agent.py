@@ -13,18 +13,25 @@ class TwoArmedBandit():
         self.alpha = alpha
         self.epsilon = epsilon
         self.reset()
+        
 
     def reset(self):
         self.action = 0
         self.reward = 0
         self.iteration = 0
         self.values = np.zeros(self.arms)
+        self.sum = 0
 
     def update(self, action, reward):
         self.action = action
         self.reward = reward
         self.iteration += 1
         self.values[action] = self.values[action] + self.alpha * (reward - self.values[action])
+        
+        self.sum += self.reward 
+         
+
+
 
     def get_action(self, mode):
         if mode == 'random':
@@ -36,10 +43,13 @@ class TwoArmedBandit():
                 return np.random.randint(self.arms)
             else:
                 return np.argmax(self.values)
+
+
+              
             
 
 
 
     def render(self):
-        print("Iteration: {}, Action: {}, Reward: {}, Values: {}".format(
-            self.iteration, self.action, self.reward, self.values))
+        print("Iteration: {}, Action: {}, Reward: {}, Values: {}, TOTAL_REWARD: {} ".format(
+            self.iteration, self.action, self.reward, self.values, self.sum))

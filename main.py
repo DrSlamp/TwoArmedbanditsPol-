@@ -8,6 +8,7 @@ import gym
 import gym_environments
 from agent import TwoArmedBandit
 
+
 env = gym.make('TwoArmedBandit-v0')
 agent = TwoArmedBandit(0.1) 
 
@@ -19,4 +20,11 @@ for iteration in range(100):
     agent.update(action, reward) 
     agent.render()
 
+
+
 env.close()
+
+
+
+
+
