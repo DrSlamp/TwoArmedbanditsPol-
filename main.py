@@ -20,8 +20,7 @@ for iteration in range(100):
     agent.update(action, reward) 
     agent.render()
 
-
-
+print(env, "version")  
 env.close()
 
 

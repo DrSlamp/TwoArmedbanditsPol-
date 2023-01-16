@@ -51,5 +51,5 @@ class TwoArmedBandit():
 
 
     def render(self):
-        print("Iteration: {}, Action: {}, Reward: {}, Values: {}, TOTAL_REWARD: {} ".format(
+        print("Iteration: {}, Action: {}, Reward: {}, Values: {}, TOTAL_REWARD: {} POINTS ".format(
             self.iteration, self.action, self.reward, self.values, self.sum))
